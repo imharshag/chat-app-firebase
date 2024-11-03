@@ -1,38 +1,176 @@
+/* General Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text color */
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  max-width: 450px; /* Narrower width for a more mobile feel */
+  margin: 0 auto;
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  height: 100vh; /* Full height */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 22px;
+  margin: 0;
+  color: #ffffff; /* White header color */
+}
+
+button {
+  background-color: #0095f6; /* Instagram blue */
   color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px; /* Smaller font */
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #007bbf; /* Darker blue on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.chat-box {
+  flex: 1; /* Take remaining space */
+  padding: 10px;
+  border-radius: 20px; /* Rounded chat box */
+  background-color: #1e1e1e; /* Dark gray for chat area */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Disable scroll */
+}
+
+.messages {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Enable internal scrolling if needed */
+  padding-right: 10px; /* Avoid overflow */
+  padding-bottom: 10px; /* Space for the last bubble */
+}
+
+.message {
+  padding: 2px 10px; /* Reduced padding for shorter bubbles */
+  margin: 4px 0; /* Slightly adjusted margin */
+  border-radius: 20px; /* Keep rounded edges */
+  max-width: 75%; /* Max width for messages */
+  word-wrap: break-word; /* Break long words */
+  position: relative; /* Positioning for bubble effect */
+  font-size: 16px; /* Standard font size for message */
+  line-height: 1.1; /* Reduced line height for shorter bubbles */
+}
+
+.sent {
+  background-color: #0095f6; /* Instagram blue for sent messages */
+  margin-left: auto;
+  text-align: right;
+  color: #ffffff; /* White text for sent messages */
+  box-shadow: 0 4px 20px rgba(0, 149, 246, 0.3); /* Softer shadow effect */
+}
+
+.received {
+  background-color: #3a3a3a; /* Darker gray for received messages */
+  border: 1px solid #555; /* Subtle border for received messages */
+  text-align: left;
+  color: #ffffff; /* Light text for received messages */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Softer shadow effect */
+}
+
+.username {
+  font-size: 12px; /* Smaller username font size */
+  color: #b0b0b0; /* Gray for usernames */
+  margin-bottom: 2px; /* Space below username */
+}
+
+.send-message-form {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Add space above the input */
+}
+
+.send-message-form input {
+  flex: 1;
+  padding: 10px;
+  border: none; /* Remove border */
+  border-radius: 20px; /* More rounded edges */
+  background-color: #3a3a3a; /* Darker input background */
+  color: #ffffff; /* Input text color */
+  font-size: 15px; /* Standard font size */
+}
+
+.send-message-form button {
+  padding: 8px 12px; /* Slightly smaller button padding */
+  margin-left: 10px;
+  background-color: #0095f6; /* Instagram button color */
+  color: white;
+  border: none;
+  border-radius: 20px; /* More rounded edges */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.send-message-form button:hover {
+  background-color: #007bbf; /* Darker blue on hover */
+}
+
+/* Mic Button Styles */
+.mic-button {
+  background-color: #ff4757; /* Red color for mic button similar to Instagram */
+  color: white;
+  border: none;
+  border-radius: 50%; /* Circular shape */
+  width: 40px; /* Width of mic button */
+  height: 40px; /* Height of mic button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  transition: background-color 0.3s;
+}
+
+.mic-button:hover {
+  background-color: #ff6b81; /* Lighter red on hover */
+}
+
+.mic-button:focus {
+  outline: none; /* Remove focus outline */
+}
+
+/* Add specific styles for the message bubbles */
+.sent::after {
+  content: "";
+  position: absolute;
+  right: -10px; /* Position the triangle */
+  top: 10px; /* Adjust for vertical positioning */
+  border-width: 8px; /* Smaller triangle */
+  border-style: solid;
+  border-color: transparent transparent transparent #0095f6; /* Triangle color */
+}
+
+.received::after {
+  content: "";
+  position: absolute;
+  left: -10px; /* Position the triangle */
+  top: 10px; /* Adjust for vertical positioning */
+  border-width: 8px; /* Smaller triangle */
+  border-style: solid;
+  border-color: transparent #3a3a3a transparent transparent; /* Triangle color */
 }
