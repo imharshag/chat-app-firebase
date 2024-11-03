@@ -95,7 +95,7 @@ function App() {
             onChange={(e) => setNewMessage(e.target.value)}
           />
           <button type="button" className="mic-button">
-            <i className="fas fa-microphone"></i>
+            🎤
           </button>
           <button type="submit">Send</button>
         </form>
