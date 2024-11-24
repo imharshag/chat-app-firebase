@@ -64,6 +64,14 @@ button:hover {
   overflow-y: auto; /* Enable internal scrolling if needed */
   padding-right: 10px; /* Avoid overflow */
   padding-bottom: 10px; /* Space for the last bubble */
+
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.messages::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
 }
 
 .message {
