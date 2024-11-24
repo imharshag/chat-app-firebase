@@ -94,8 +94,7 @@ function App() {
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
           />
-          {/* Mic button is kept but without functionality */}
-          <button type="button" className="mic-button">🎤</button>
+            <button type="button" className="mic-button">🎤</button>
           <button type="submit">Send</button>
         </form>
       )}
