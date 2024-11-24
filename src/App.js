@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { auth, firestore, provider } from "./firebaseConfig";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { collection, addDoc, query, onSnapshot, orderBy } from "firebase/firestore";
-// import SpeechToText from "./SpeechToText"; // Import the SpeechToText component 
 import "./App.css";
 
 function App() {
@@ -65,10 +64,6 @@ function App() {
     }
   };
 
-  const setTranscribedText = (text) => {
-    setNewMessage(text); // Update message input with transcribed text
-  };
-
   return (
     <div className="App">
       <header>
@@ -99,7 +94,8 @@ function App() {
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
           />
-          <SpeechToText setTranscribedText={setTranscribedText} />
+          {/* Mic button is kept but without functionality */}
+          <button type="button" className="mic-button">🎤</button>
           <button type="submit">Send</button>
         </form>
       )}
