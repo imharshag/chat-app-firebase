@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { auth, firestore, provider } from "./firebaseConfig";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { collection, addDoc, query, onSnapshot, orderBy } from "firebase/firestore";
-import SpeechToText from "./SpeechToText"; // Import the SpeechToText component
+// import SpeechToText from "./SpeechToText"; // Import the SpeechToText component 
 import "./App.css";
 
 function App() {
